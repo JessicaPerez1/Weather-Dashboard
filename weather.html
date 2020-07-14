@@ -27,18 +27,18 @@
           </form>
         </nav>
     <!-- main container -->
-    <div class="container row" id="main-div" style="width: 100%">
+    <div class="container row m-0" id="main-div">
       <div class="col-12 col-md-3 input-group mb-3">
         <div>
-        <ul class="search-history p-2 bg-white">Past city search:</ul>
+        <div class="search-history p-2 bg-white">Past city search:</div>
         </div>
       </div>
       <div class="col-12 col-md-9">
         <div class="row current-city-info">
-          <div class="card current-city-date mb-3 ml-2" style="width: 85%">
-            <h5 class="card-header current-city"></h5>
+          <div class="card mb-3 ml-2" style="width: 85%">
+            <h5 class="card-header current-city-date"></h5>
             <div class="card-body">
-              <p class="card-text">Temperature: <span id="temperature"></span></p>
+              <p class="card-text"><span id="temperature"></span></p>
               <p class="card-text">Humidity: <span id="humidity"></span></p>
               <p class="card-text">Wind speed: <span id="wind-speed"></span></p>
               <p class="card-text">UV index: <span id="uv-index"></span></p>
@@ -48,42 +48,47 @@
         <div class="cards five-day-forecast">
           <!-- card 1 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 9rem;">
-            <div class="card-header">Header</div>
+            <div id="day-one-date" class="card-header">Date</div>
             <div class="card-body text-dark">
-              <p class="card-text">Some quick example text to build content.
-              </p>
+              <img id="icon-day-one" class="card-text">Icon:</img>
+              <p id="temp-day-one" class="card-text">Temperature: </p>
+              <p id="hum-day-one" class="card-text">Humidity: </p>
             </div>
           </div>
           <!-- card 2 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 9rem;">
-            <div class="card-header">Header</div>
+            <div id="day-two-date" class="card-header">Date</div>
             <div class="card-body text-dark">
-              <p class="card-text">Some quick example text to build content.
-              </p>
+              <img id="icon-day-two" class="card-text">Icon:</img>
+              <p id="temp-day-two" class="card-text">Temperature: </p>
+              <p id="hum-day-two" class="card-text">Humidity: </p>
             </div>
           </div>
           <!-- card 3 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 9rem;">
-            <div class="card-header">Header</div>
+            <div id="day-three-date" class="card-header">Date</div>
             <div class="card-body text-dark">
-              <p class="card-text">Some quick example text to build content.
-              </p>
+              <img id="icon-day-three" class="card-text">Icon:</img>
+              <p id="temp-day-three" class="card-text">Temperature: </p>
+              <p id="hum-day-three" class="card-text">Humidity: </p>
             </div>
           </div>
           <!-- card 4 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 9rem;">
-            <div class="card-header">Header</div>
+            <div id="day-four-date" class="card-header">Date</div>
             <div class="card-body text-dark">
-              <p class="card-text">Some quick example text to build content.
-              </p>
+              <img id="icon-day-four" class="card-text">Icon:</img>
+              <p id="temp-day-four" class="card-text">Temperature: </p>
+              <p id="hum-day-four" class="card-text">Humidity: </p>
             </div>
           </div>
           <!-- card 5 -->
           <div class="card border-dark mb-5 float-left" style="max-width: 9rem;">
-            <div class="card-header">Header</div>
+            <div id="day-five-date" class="card-header">Date</div>
             <div class="card-body text-dark">
-              <p class="card-text">Some quick example text to build content.
-              </p>
+              <img id="icon-day-five" class="card-text">Icon:</img>
+              <p id="temp-day-five" class="card-text">Temperature: </p>
+              <p id="hum-day-five" class="card-text">Humidity: </p>
             </div>
           </div>
           </div>
