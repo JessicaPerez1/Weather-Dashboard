@@ -1,0 +1,26 @@
+.container {
+  background-image: url(https://lebanonpresbyterianchurch.com/wp-content/uploads/2018/12/cloud-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#weatherapplogo {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.form-inline {
+  width: 100%;
+}
+.search-history {
+  list-style-type: none;
+  margin: 10px 10px;
+  border: 1px solid #c8c9c9;
+  border-radius: 8%;
+}
+.list-item {
+  border-top: 1px solid #c8c9c9;
+}
+.card-text {
+  margin: 0;
+}
