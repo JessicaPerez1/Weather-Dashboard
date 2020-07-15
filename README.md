@@ -12,6 +12,8 @@
 ![Cairo localstorage screenshot](Cairo-localstorage-screenshot.png)
 ![Brussels localstorage screenshot](Brussels-localstorage-screenshot.png)
 ![Lyon dashbord screenshot](Lyon-screenshot.png)
+![Sydney uv screenshot](Sydney-uv-screenshot.png)
+![Boston uv screenshot](Boston-uv-screenshot.png)
 
 ## Project submissions
 
