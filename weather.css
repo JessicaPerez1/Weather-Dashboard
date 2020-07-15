@@ -27,3 +27,18 @@
 .card-text {
   margin: 0;
 }
+.low {
+  background-color: green;
+}
+.moderate {
+  background-color: yellow;
+}
+.high {
+  background-color: orange;
+}
+.very-high {
+  background-color: orangered;
+}
+.extreme {
+  background-color: red;
+}
