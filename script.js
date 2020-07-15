@@ -19,7 +19,9 @@
 //DEPENDENCIES================================================
 // //SET VARIABLES
 var citiesArr = [];
+retrieveInfo();
 onSearchClick();
+
 // API KEY BY CITY NAME
 function onSearchClick() {
   $(".search").on("click", function (event) {
@@ -30,9 +32,11 @@ function onSearchClick() {
     // var city = cityLower.text(str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
     console.log(city);
     citiesArr.push(city);
-    //COMES FROM LOCAL STORAGE
-    localStorage.setItem("city name:", JSON.stringify(citiesArr));
+    console.log("CITIEs ARR", citiesArr);
+    //SET TO/STORE TO LOCAL STORAGE
+    localStorage.setItem("cities", JSON.stringify(citiesArr));
     console.log(localStorage);
+    retrieveInfo();
 
     //TO GET CURRENT DATE==============
     var date = moment();
@@ -240,20 +244,22 @@ function onSearchClick() {
     });
   });
 }
+
 // //LOCAL STORAGE
 //RETRIEVE LOCAL STORAGE INFO
 function retrieveInfo() {
-  citiesArr = JSON.parse(localStorage.getItem(["city name:"]));
-  console.log(citiesArr);
+  citiesArr = JSON.parse(localStorage.getItem("cities")) || [];
+  console.log(" NCA", citiesArr);
+  $(".search-history").empty();
   //to make sure there are no duplicates stored
-  var noDuplicatesArr = [...new Set(citiesArr)];
+  // //var noDuplicatesArr = [...new Set(citiesArr)];
   //for all elements of the citiesArr stored, create a p tag and append to the search history list
-  for (var i = 0; i < noDuplicatesArr.length; i++) {
+  for (var i = 0; i < citiesArr.length; i++) {
+    console.log(citiesArr[i]);
     var pTag = $("<p>");
-    pTag.text(noDuplicatesArr[i]);
-    $(".search-history").append(pTag);
+    pTag.text(citiesArr[i]);
+    $(".search-history").prepend(pTag);
     //Add an on click event when one of the ptags are clicked
     //if one of the .search-history children gets clicked, then run the onSearchClick() function
   }
 }
-retrieveInfo();
