@@ -143,7 +143,7 @@ $(".search").on("click", function (event) {
     $("#hum-day-five").text("Humidity: " + humidityDayFive + "%");
     //ICON day one
     console.log(response);
-    var iconCodeDayOne = response.list[0].weather.icon;
+    var iconCodeDayOne = response.list[0].weather[0].icon;
     var iconImageURLDayOne =
       "http://openweathermap.org/img/w/" + iconCodeDayOne + ".png";
     console.log(iconCodeDayOne);
@@ -185,8 +185,8 @@ $(".search").on("click", function (event) {
       $("#temp-day-five").text("Temperature: " + tempFDayive + "F");
       //TO DO ++++++++++ display icon image
       //ACCESS THE ICON IN RESPONSE OBJECT
-      // var iconCode = response.weather[0].icon;
-      // console.log(iconCode);
+      // var iconCodeDayOne = response.list[0].weather.icon;
+      // console.log(iconCodeDayOne);
       // var iconImageURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
       // $("#icon-image").attr("src", iconImageURL);
     });
