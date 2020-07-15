@@ -21,21 +21,28 @@
     <!-- nav bar -->
         <nav class="navbar navbar-light bg-white">
           <form class="form-inline">
-            <span id="weatherapplogo" class="navbar-brand h1 text-center text-primary">What's the weather like?</span>
-            <input id="city-name" class="form-control mr-sm-2" type="search" placeholder="Enter a city name" aria-label="Search">
-            <button class="search btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            <span id="weatherapplogo" class="navbar-brand h1 text-center text-primary">What's the weather like?</span> 
+            <!-- <span class="form-inblock">Get real time weather and a 5 day forecast!</span> -->
+            <div>
+              <input id="city-name" class="form-control mr-sm-2" type="search" placeholder="Enter a city name" aria-label="Search">
+              <button class="search btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </div>
           </form>
         </nav>
     <!-- main container -->
     <div class="container row m-0" id="main-div">
       <div class="col-12 col-md-3 input-group mb-1">
         <div class="city-list">
-        <div class="search-history p-3 bg-white"><strong>Past city search:</strong></div>
+        <!-- Search history -->
+        <ul class="search-history p-3 bg-white">
+          <h5>Past City search:</h5>
+        </ul>
         </div>
       </div>
       <div class="col-12 col-md-9">
         <div class="row current-city-info">
           <div class="card mb-3 ml-2" style="width: 85%">
+            <!-- current info card -->
             <h5 class="card-header current-city-date"></h5>
             <div class="card-body">
               <img id="icon-image" src="">
@@ -46,8 +53,9 @@
             </div>
           </div>
         </div>
+        <!--5 day forecast cards -->
         <div class="cards five-day-forecast">
-          <!-- card 1 -->
+          <!-- day 1 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
             <div id="day-one-date" class="card-header"></div>
             <div class="card-body text-dark">
@@ -56,7 +64,7 @@
               <p id="hum-day-one" class="card-text"></p>
             </div>
           </div>
-          <!-- card 2 -->
+          <!-- day 2 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
             <div id="day-two-date" class="card-header"></div>
             <div class="card-body text-dark">
@@ -65,7 +73,7 @@
               <p id="hum-day-two" class="card-text"></p>
             </div>
           </div>
-          <!-- card 3 -->
+          <!-- day 3 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
             <div id="day-three-date" class="card-header"></div>
             <div class="card-body text-dark">
@@ -74,7 +82,7 @@
               <p id="hum-day-three" class="card-text"></p>
             </div>
           </div>
-          <!-- card 4 -->
+          <!-- day 4 -->
           <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
             <div id="day-four-date" class="card-header"></div>
             <div class="card-body text-dark">
@@ -83,7 +91,7 @@
               <p id="hum-day-four" class="card-text"></p>
             </div>
           </div>
-          <!-- card 5 -->
+          <!-- day 5 -->
           <div class="card border-dark mb-5 float-left" style="max-width: 10rem;">
             <div id="day-five-date" class="card-header"></div>
             <div class="card-body text-dark">
@@ -93,7 +101,6 @@
             </div>
           </div>
           </div>
-          <img id="icon-image" />
         </div>
       </div>
     </div>
