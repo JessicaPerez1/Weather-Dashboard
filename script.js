@@ -57,7 +57,7 @@ function onSearchClick() {
 
     //API CURRENT WEATHER INFO======================
     var queryURLCurrentTemp =
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&appid=6930be6df36a7c0ee230985f8b10373e&units=imperial";
     $.ajax({
@@ -78,13 +78,14 @@ function onSearchClick() {
       //ICON current
       var iconCode = response.weather[0].icon;
       console.log(iconCode);
-      var iconImageURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+      var iconImageURL =
+        "https://openweathermap.org/img/w/" + iconCode + ".png";
       $("#icon-image").attr("src", iconImageURL);
       //UV
       var latitude = response.coord.lat;
       var longitude = response.coord.lon;
       var uvURL =
-        "http://api.openweathermap.org/data/2.5/uvi?appid=6930be6df36a7c0ee230985f8b10373e&units" +
+        "https://api.openweathermap.org/data/2.5/uvi?appid=6930be6df36a7c0ee230985f8b10373e&units" +
         "&lat=" +
         latitude +
         "&lon=" +
@@ -122,7 +123,7 @@ function onSearchClick() {
 
       //API 5 DAY FORECAST INFO============
       var queryURL =
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
         "&appid=6930be6df36a7c0ee230985f8b10373e";
       $.ajax({
@@ -181,36 +182,36 @@ function onSearchClick() {
         console.log(response);
         var iconCodeDayOne = response.list[0].weather[0].icon;
         var iconImageURLDayOne =
-          "http://openweathermap.org/img/w/" + iconCodeDayOne + ".png";
+          "https://openweathermap.org/img/w/" + iconCodeDayOne + ".png";
         console.log(iconCodeDayOne);
         $("#icon-day-one").attr("src", iconImageURLDayOne);
         //ICON day two
         var iconCodeDayTwo = response.list[8].weather[0].icon;
         var iconImageURLDayTwo =
-          "http://openweathermap.org/img/w/" + iconCodeDayTwo + ".png";
+          "https://openweathermap.org/img/w/" + iconCodeDayTwo + ".png";
         console.log(iconCodeDayTwo);
         $("#icon-day-two").attr("src", iconImageURLDayTwo);
         //ICON day three
         var iconCodeDayThree = response.list[16].weather[0].icon;
         var iconImageURLDayThree =
-          "http://openweathermap.org/img/w/" + iconCodeDayThree + ".png";
+          "https://openweathermap.org/img/w/" + iconCodeDayThree + ".png";
         console.log(iconCodeDayThree);
         $("#icon-day-three").attr("src", iconImageURLDayThree);
         //ICON day four
         var iconCodeDayFour = response.list[24].weather[0].icon;
         var iconImageURLDayFour =
-          "http://openweathermap.org/img/w/" + iconCodeDayFour + ".png";
+          "https://openweathermap.org/img/w/" + iconCodeDayFour + ".png";
         console.log(iconCodeDayFour);
         $("#icon-day-four").attr("src", iconImageURLDayFour);
         //ICON day five
         var iconCodeDayFive = response.list[32].weather[0].icon;
         var iconImageURLDayFive =
-          "http://openweathermap.org/img/w/" + iconCodeDayFive + ".png";
+          "https://openweathermap.org/img/w/" + iconCodeDayFive + ".png";
         console.log(iconCodeDayFive);
         $("#icon-day-five").attr("src", iconImageURLDayFive);
         //WEATHER IN PROPER FARHENHEIT UNIT
         var queryURLTemp =
-          "http://api.openweathermap.org/data/2.5/forecast?q=" +
+          "https://api.openweathermap.org/data/2.5/forecast?q=" +
           city +
           "&appid=6930be6df36a7c0ee230985f8b10373e&units=imperial";
         //ACCESS THE 5 day weather temp - display IN CARD1
