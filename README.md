@@ -8,7 +8,10 @@
 
 ### Project screenshots
 
-![Weather dashbord screenshot]()
+![Cairo dashbord screenshot](Cairo-screenshot.png)
+![Cairo localstorage screenshot](Cairo-localstorage-screenshot.png)
+![Brussels localstorage screenshot](Brussels-localstorage-screenshot.png)
+![Lyon dashbord screenshot](Lyon-screenshot.png)
 
 ## Project submissions
 
