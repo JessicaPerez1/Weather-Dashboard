@@ -1,11 +1,10 @@
 .container {
   background-image: url(https://lebanonpresbyterianchurch.com/wp-content/uploads/2018/12/cloud-background.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
 }
 #main-div {
-  width: 1200px;
+  width: 1300px;
 }
 #weatherapplogo {
   width: 100%;
@@ -15,11 +14,18 @@
 .form-inline {
   width: 100%;
 }
+.input-group {
+  max-height: 600px;
+}
+.city-list {
+  max-height: 500px;
+}
 .search-history {
   list-style-type: none;
   margin: 10px 10px;
   border: 1px solid #c8c9c9;
   border-radius: 8%;
+  color: grey;
 }
 .list-item {
   border-top: 1px solid #c8c9c9;

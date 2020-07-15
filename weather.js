@@ -19,28 +19,20 @@
 //DEPENDENCIES================================================
 // //SET VARIABLES
 var citiesArr = [];
-
 // API KEY BY CITY NAME
 $(".search").on("click", function (event) {
   event.preventDefault();
   //get the city on button click
   var city = $("#city-name").val();
+  //TO MAKE THE first letter capitalized =====
+  // var city = cityLower.text(str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
   console.log(city);
   citiesArr.push(city);
-  // create an new li for each newCity
   //COMES FROM LOCAL STORAGE
   localStorage.setItem("city name:", JSON.stringify(citiesArr));
   console.log(localStorage);
 
-  // var cityLi = $("<li>");
-  // cityLi.text(city);
-  // console.log(cityLi);
-  // cityLi.attr("class", "list-item");
-  // console.log(cityLi);
-  // // and display the newCity in li
-  // $(".search-history").append(cityLi);
-
-  //TO GET CURRENT DATE
+  //TO GET CURRENT DATE==============
   var date = moment();
   var dateDisplay = date.format("dddd MMMM Do YYYY");
   $(".current-city-date").empty();
@@ -204,55 +196,58 @@ $(".search").on("click", function (event) {
       console.log(tempFDayive);
       $("#temp-day-five").text("Temperature: " + tempFDayive + "F");
     });
-
-    // //UV
-    // var latitude = response.coord.lat;
-    // var longitude = response.coord.lon;
-    // var uvURL =
-    //   "http://api.openweathermap.org/data/2.5/uvi?appid=6930be6df36a7c0ee230985f8b10373e&units" +
-    //   "&lat=" +
-    //   latitude +
-    //   "&lon=" +
-    //   longitude;
-    // $.ajax({
-    //   url: uvURL,
-    //   method: "GET",
-    // }).then(function (response) {
-    //   console.log(response);
-    // var uvIndex = response.value;
-    // $("#uv-index").text(uvIndex);
-    // // var uvIndex = response.wind.speed;
-    // console.log("UV Index:", response);
-    //======================
-    // // uv index
-    //   if (uvIndex < 2) {
-    //     $(".index").attr("class", "low");
-    //     console.log("You're safe!");
-    //   }
-    //   if (uvIndex >= 2 && uvIndex <= 5) {
-    //     $(".index").attr("class", "moderate");
-    //     console.log("Getting risky");
-    //   }
-    //   if (uvIndex > 5 && uvIndex <= 7) {
-    //     $(".index").attr("class", "high");
-    //     console.log("Uh oh!");
-    //   }
-    //   if (uvIndex > 7 && uvIndex <= 10) {
-    //     $(".index").attr("class", "very-high");
-    //     console.log("You better stay inside!");
-    //   }
-    //   if (uvIndex > 10) {
-    //     $("#.index").attr("class", "extreme");
-    //     console.log("You will ignite on fire");
-    //   }
   });
+
+  // //UV
+  // var latitude = response.coord.lat;
+  // var longitude = response.coord.lon;
+  // var uvURL =
+  //   "http://api.openweathermap.org/data/2.5/uvi?appid=6930be6df36a7c0ee230985f8b10373e&units" +
+  //   "&lat=" +
+  //   latitude +
+  //   "&lon=" +
+  //   longitude;
+  // $.ajax({
+  //   url: uvURL,
+  //   method: "GET",
+  // }).then(function (response) {
+  //   console.log(response);
+  // var uvIndex = response.value;
+  // $("#uv-index").text(uvIndex);
+  // // var uvIndex = response.wind.speed;
+  // console.log("UV Index:", response);
+  //======================
+  // // uv index
+  //   if (uvIndex < 2) {
+  //     $(".index").attr("class", "low");
+  //     console.log("You're safe!");
+  //   }
+  //   if (uvIndex >= 2 && uvIndex <= 5) {
+  //     $(".index").attr("class", "moderate");
+  //     console.log("Getting risky");
+  //   }
+  //   if (uvIndex > 5 && uvIndex <= 7) {
+  //     $(".index").attr("class", "high");
+  //     console.log("Uh oh!");
+  //   }
+  //   if (uvIndex > 7 && uvIndex <= 10) {
+  //     $(".index").attr("class", "very-high");
+  //     console.log("You better stay inside!");
+  //   }
+  //   if (uvIndex > 10) {
+  //     $("#.index").attr("class", "extreme");
+  //     console.log("You will ignite on fire");
+  //   }
 });
+
 // //LOCAL STORAGE
 //RETRIEVE LOCAL STORAGE INFO
 function retrieveInfo() {
   citiesArr = JSON.parse(localStorage.getItem(["city name:"]));
   console.log(citiesArr);
+  //to make sure there are no duplicates stored
   var noDuplicatesArr = [...new Set(citiesArr)];
+  //for all elements of the citiesArr stored, create a p tag and append to the search history list
   for (var i = 0; i < noDuplicatesArr.length; i++) {
     var pTag = $("<p>");
     pTag.text(noDuplicatesArr[i]);
