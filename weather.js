@@ -149,6 +149,11 @@ $(".search").on("click", function (event) {
     console.log(iconCodeDayOne);
     $("#icon-day-one").attr("src", iconImageURLDayOne);
     //ICON day two
+    var iconCodeDayTwo = response.list[8].weather[0].icon;
+    var iconImageURLDayTwo =
+      "http://openweathermap.org/img/w/" + iconCodeDayTwo + ".png";
+    console.log(iconCodeDayOne);
+    $("#icon-day-one").attr("src", iconImageURLDayTwo);
     //ICON day three
     //ICON day four
     //ICON day five
@@ -283,5 +288,5 @@ retrieveInfo();
 //the temperature,
 //and the humidity
 //If the user searches for another city, then their past city search is saved
-//The user can click on past city searches and view the weather
+//============//The user can click on past city searches and view the weather
 //Display Data
