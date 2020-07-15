@@ -13,7 +13,7 @@
 ## Project submissions
 
 - The URL of the deployed application:
-  https://jessicaperez1.github.io/Weather-Dashboard/.
+  https://jessicaperez1.github.io/Weather-Dashboard/
 
 - The URLs of the GitHub repositories:
   https://github.com/JessicaPerez1/Weather-Dashboard.git
