@@ -152,11 +152,26 @@ $(".search").on("click", function (event) {
     var iconCodeDayTwo = response.list[8].weather[0].icon;
     var iconImageURLDayTwo =
       "http://openweathermap.org/img/w/" + iconCodeDayTwo + ".png";
-    console.log(iconCodeDayOne);
-    $("#icon-day-one").attr("src", iconImageURLDayTwo);
+    console.log(iconCodeDayTwo);
+    $("#icon-day-two").attr("src", iconImageURLDayTwo);
     //ICON day three
+    var iconCodeDayThree = response.list[16].weather[0].icon;
+    var iconImageURLDayThree =
+      "http://openweathermap.org/img/w/" + iconCodeDayThree + ".png";
+    console.log(iconCodeDayThree);
+    $("#icon-day-three").attr("src", iconImageURLDayThree);
     //ICON day four
+    var iconCodeDayFour = response.list[24].weather[0].icon;
+    var iconImageURLDayFour =
+      "http://openweathermap.org/img/w/" + iconCodeDayFour + ".png";
+    console.log(iconCodeDayFour);
+    $("#icon-day-four").attr("src", iconImageURLDayFour);
     //ICON day five
+    var iconCodeDayFive = response.list[32].weather[0].icon;
+    var iconImageURLDayFive =
+      "http://openweathermap.org/img/w/" + iconCodeDayFive + ".png";
+    console.log(iconCodeDayFive);
+    $("#icon-day-five").attr("src", iconImageURLDayFive);
     //WEATHER IN PROPER FARHENHEIT UNIT
     var queryURLTemp =
       "http://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -188,12 +203,6 @@ $(".search").on("click", function (event) {
       var tempFDayive = Math.ceil(response.list[32].main.temp);
       console.log(tempFDayive);
       $("#temp-day-five").text("Temperature: " + tempFDayive + "F");
-      //TO DO ++++++++++ display icon image
-      //ACCESS THE ICON IN RESPONSE OBJECT
-      // var iconCodeDayOne = response.list[0].weather.icon;
-      // console.log(iconCodeDayOne);
-      // var iconImageURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
-      // $("#icon-image").attr("src", iconImageURL);
     });
 
     // //UV
@@ -251,42 +260,3 @@ function retrieveInfo() {
   }
 }
 retrieveInfo();
-
-// //submit user score
-// console.log(city);
-// var userInfo = {
-//   userName: userName.value,
-// };
-// // store user input
-// localStorage.setItem("City", JSON.stringify(city));
-// var newCityInfo = JSON.parse(localStorage.getItem(city));
-
-// API KEY BY CITY NAME 5 day forecast
-
-//DOM Elements
-//Initial DATA
-//FUNCTIONS====================================================
-//USER INPUT===================================================
-//A user types a city
-//A user submits their search
-//A users search history is saved
-//then the currrent weather of that city shows up
-//they see the city name,
-//the date,
-//an icon representation of weather conditions,
-//the temperature,
-//the humidity,
-//the wind speed,
-//and the UV index
-//based on the UV Index
-//the color is green for favorable
-//the color is purple for moderate
-//the color is red for severe
-//They also see the 5 day forecast of their city that they searched
-//the date,
-//an icon representation of weather conditions,
-//the temperature,
-//and the humidity
-//If the user searches for another city, then their past city search is saved
-//============//The user can click on past city searches and view the weather
-//Display Data
