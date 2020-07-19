@@ -10,6 +10,7 @@ function onSearchClick() {
     event.preventDefault();
     //get the city's value on button click
     var city = $("#city-name").val();
+    console.log(city);
     //TO MAKE THE first letter capitalized =====
     // var city = cityLower.text(str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
     //add the city entered at the end of the citiesArr
@@ -228,23 +229,36 @@ function retrieveInfo() {
     var pTag = $("<p>");
     pTag.text(citiesArr[i]);
     //last city searched appears first
-    $(".search-history").prepend(pTag);
+    var lastCitySearched = $(".search-history").prepend(pTag);
+    var city = $("#city-name").val();
+    $(city).text(lastCitySearched);
+    //when page refreshed, display the last item in the citiesArr
+    // var lastCitySearched = citiesArr[citiesArr.length - 1];
+    // console.log(lastCitySearched);
+    //WHEN A PTAG IS CLICKED...
+    pTag.on("click", function (event) {
+      event.preventDefault();
+      var element = event.target;
+      console.log(element);
+      var textPtag = element.textContent;
+      console.log(textPtag);
+      //display to input
+      $("#city-name").val(textPtag);
+    });
   }
-  // onUlClick();
 }
-// //WHEN AN ELEMENT INSIDE OF THE CITY SEARCH HISTORY IS CLICKED === TODO ===
-// function onUlClick() {
-//   cityUl.on("click", function (event) {
-//     //prevent bubbling
-//     event.preventDefault();
-//     var element = event.target;
-//     // var element = event.target;
-//     //if that element is a ptag
-//     var pTag = $("<p>");
-//     var findUl = $(".search-history").find(pTag);
-//     if (element === pTag) {
-//       onSearchClick();
-//     }
+// // //WHEN AN ELEMENT INSIDE OF THE CITY SEARCH HISTORY IS CLICKED === TODO ===
+
+// var lastSearched = citiesArr[citiesArr[0]];
+
+//   var queryURLCurrentTemp =
+//     "https://api.openweathermap.org/data/2.5/weather?q=" +
+//     textPtag +
+//     "&appid=6930be6df36a7c0ee230985f8b10373e&units=imperial";
+//   $.ajax({
+//     url: queryURLCurrentTemp,
+//     method: "GET",
+//   }).then(function (response) {
+//     console.log(response);
 //   });
-// }
-// onUlClick();
+// });
