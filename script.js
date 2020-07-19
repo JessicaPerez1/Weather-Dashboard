@@ -232,9 +232,6 @@ function retrieveInfo() {
     var lastCitySearched = $(".search-history").prepend(pTag);
     var city = $("#city-name").val();
     $(city).text(lastCitySearched);
-    //when page refreshed, display the last item in the citiesArr
-    // var lastCitySearched = citiesArr[citiesArr.length - 1];
-    // console.log(lastCitySearched);
     //WHEN A PTAG IS CLICKED...
     pTag.on("click", function (event) {
       event.preventDefault();
@@ -247,9 +244,12 @@ function retrieveInfo() {
     });
   }
 }
-// // //WHEN AN ELEMENT INSIDE OF THE CITY SEARCH HISTORY IS CLICKED === TODO ===
 
-// var lastSearched = citiesArr[citiesArr[0]];
+//WHEN PAGE REFRESHED, LOAD LAST CITY SEARCH TO INPUT
+//when page refreshed, display the last item of the citiesArr
+var lastCitySearched = citiesArr[citiesArr.length - 1];
+console.log(lastCitySearched);
+$("#city-name").val(lastCitySearched);
 
 //   var queryURLCurrentTemp =
 //     "https://api.openweathermap.org/data/2.5/weather?q=" +
