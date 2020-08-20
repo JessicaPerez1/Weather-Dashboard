@@ -245,20 +245,7 @@ function retrieveInfo() {
   }
 }
 
-//WHEN PAGE REFRESHED, LOAD LAST CITY SEARCH TO INPUT
-//when page refreshed, display the last item of the citiesArr
+//WHEN PAGE REFRESHED, LOAD LAST CITY SEARCH TO INPUT and DISPLAY
 var lastCitySearched = citiesArr[citiesArr.length - 1];
 console.log(lastCitySearched);
 $("#city-name").val(lastCitySearched);
-
-//   var queryURLCurrentTemp =
-//     "https://api.openweathermap.org/data/2.5/weather?q=" +
-//     textPtag +
-//     "&appid=6930be6df36a7c0ee230985f8b10373e&units=imperial";
-//   $.ajax({
-//     url: queryURLCurrentTemp,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response);
-//   });
-// });
