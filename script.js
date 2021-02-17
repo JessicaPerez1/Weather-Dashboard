@@ -12,10 +12,11 @@ function onSearchClick() {
     event.preventDefault();
     //get the city's value on button click
     var city = $("#city-name").val();
-    //TO MAKE THE first letter capitalized =====
-    // var city = cityLower.text(str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
+    //First letter of City capitalized
+    var cityFirstCap = city.charAt(0).toUpperCase() + city.slice(1);
+    console.log("CITY CAPPPS", cityFirstCap)
     //add the city entered at the end of the citiesArr
-    citiesArr.push(city);
+    citiesArr.push(cityFirstCap);
     //SET TO/STORE TO LOCAL STORAGE
     localStorage.setItem("cities", JSON.stringify(citiesArr));
     retrieveInfo();
@@ -26,7 +27,7 @@ function onSearchClick() {
     $(".current-city-date").empty();
     //create a new span for the city and add content
     var newSpanCity = $("<span>");
-    newSpanCity.text(city);
+    newSpanCity.text(cityFirstCap);
     newSpanCity.attr("class", "current-city");
     //create a new span for the date and add content
     var newSpanDate = $("<span>");
@@ -168,7 +169,6 @@ function onSearchClick() {
           url: queryURLTemp,
           method: "GET",
         }).then(function (response) {
-          console.log(response);
           //day 1 to 5: temp access and display
           var tempFDayOne = Math.ceil(response.list[0].main.temp);
           $("#temp-day-one").text("Temperature: " + tempFDayOne + "F");
@@ -195,20 +195,18 @@ function retrieveInfo() {
   var noDuplicatesArr = [...new Set(citiesArr)];
   //display retrieved info to my page - loop through citiesArr
   for (var i = 0; i < noDuplicatesArr.length; i++) {
-    console.log(noDuplicatesArr[i]);
     var pTag = $("<p>");
     pTag.text(noDuplicatesArr[i]);
     //last city searched appears first
     var lastCitySearched = $(".search-history").prepend(pTag);
     var city = $("#city-name").val();
-    $(city).text(lastCitySearched);
+    var cityFirstCap = city.charAt(0).toUpperCase() + city.slice(1);
+    $(cityFirstCap).text(lastCitySearched);
     //WHEN A PTAG IS CLICKED...
     pTag.on("click", function (event) {
       event.preventDefault();
       var element = event.target;
-      console.log(element);
       var textPtag = element.textContent;
-      console.log(textPtag);
       //display to input
       $("#city-name").val(textPtag);
     });
@@ -217,5 +215,4 @@ function retrieveInfo() {
 
 //WHEN PAGE REFRESHED, LOAD LAST CITY SEARCH TO INPUT and DISPLAY
 var lastCitySearched = citiesArr[citiesArr.length - 1];
-console.log(lastCitySearched);
 $("#city-name").val(lastCitySearched);
