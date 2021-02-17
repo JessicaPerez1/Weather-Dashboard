@@ -10,38 +10,42 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    /> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">  
+  
     <link rel="stylesheet" href="style.css" />
+
     <title>Weather dashboard</title>
   </head>
   <body>
     <!-- nav bar -->
-        <nav class="navbar navbar-light bg-white">
+        <nav class="navbar navbar-light mb-3 p-5">
           <form class="form-inline">
-            <span id="weatherapplogo" class="navbar-brand h1 text-center text-primary">What's the weather like?</span> 
-            <!-- <span class="form-inblock">Get real time weather and a 5 day forecast!</span> -->
-            <div>
+            <i class="fas fa-globe fa-3x mb-2"></i>
+            <h1>THE GLOBAL WEATHER CHANNEL</h1>
+            <span id="weatherapplogo" class="navbar-brand p-2">What's the weather like?</span> 
+            <h5 class="form-inblock p-3">Get real time weather and a 5 day forecast for any city in the world!</h5>
+            <div class="search-group">
               <input id="city-name" class="form-control mr-sm-2" type="search" placeholder="Enter a city name" aria-label="Search">
-              <button class="search btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+              <button class="search btn btn-dark my-2 my-sm-0" type="submit">Search</button>
             </div>
           </form>
         </nav>
     <!-- main container -->
-    <div class="row m-0" id="main-div">
-      <div class="col-12 col-md-3 input-group mb-1">
+    <!-- <div class="row m-0" id="main-div"> -->
+    <div class="row p-3 m-0" id="main-div">
+      <div class="col-3 input-group mb-1">
         <div class="city-list">
         <!-- Search history -->
-        <ul class="search-history p-3 bg-white">
-          <h5>Past City search:</h5>
+        <h6 class="access-history">Access your history search</h6>
+        <ul class="search-history p-3 bg-none">
         </ul>
         </div>
       </div>
-      <div class="col-12 col-md-9">
-        <div class="row current-city-info">
-          <div class="card mb-3 ml-2" style="width: 85%">
+      <div class="col-9">
+        <h6 class="color-primary">Current weather</h6>
+        <div class="current-city-info">
+          <div id="current-card" class="card mb-3">
             <!-- current info card -->
             <h5 class="card-header current-city-date"></h5>
             <div class="card-body">
@@ -55,8 +59,9 @@
         </div>
         <!--5 day forecast cards -->
         <div class="cards five-day-forecast">
+          <h6>5 day forecast</h6>
           <!-- day 1 -->
-          <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
+          <div class="card mb-2 card-five-day">
             <div id="day-one-date" class="card-header"></div>
             <div class="card-body text-dark">
               <img id="icon-day-one" class="card-text"></img>
@@ -65,7 +70,7 @@
             </div>
           </div>
           <!-- day 2 -->
-          <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
+          <div class="card mb-2 card-five-day">
             <div id="day-two-date" class="card-header"></div>
             <div class="card-body text-dark">
               <img id="icon-day-two" class="card-text"></img>
@@ -74,7 +79,7 @@
             </div>
           </div>
           <!-- day 3 -->
-          <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
+          <div class="card mb-2 card-five-day">
             <div id="day-three-date" class="card-header"></div>
             <div class="card-body text-dark">
               <img id="icon-day-three" class="card-text"></img>
@@ -83,7 +88,7 @@
             </div>
           </div>
           <!-- day 4 -->
-          <div class="card border-dark mb-2 float-left" style="max-width: 10rem;">
+          <div class="card mb-2 card-five-day">
             <div id="day-four-date" class="card-header"></div>
             <div class="card-body text-dark">
               <img id="icon-day-four" class="card-text"></img>
@@ -92,7 +97,7 @@
             </div>
           </div>
           <!-- day 5 -->
-          <div class="card border-dark mb-5 float-left" style="max-width: 10rem;">
+          <div class="card mb-5 card-five-day">
             <div id="day-five-date" class="card-header"></div>
             <div class="card-body text-dark">
               <img id="icon-day-five" class="card-text"></img>

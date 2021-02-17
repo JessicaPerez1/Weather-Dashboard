@@ -1,41 +1,39 @@
 //SET VARIABLES
 var cityUl = $(".search-history");
 var citiesArr = [];
+
 retrieveInfo();
 onSearchClick();
 
 //API KEY BY CITY NAME ==================
 function onSearchClick() {
   $(".search").on("click", function (event) {
+    //keep form from reloading the page
     event.preventDefault();
     //get the city's value on button click
     var city = $("#city-name").val();
-    console.log(city);
     //TO MAKE THE first letter capitalized =====
     // var city = cityLower.text(str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
     //add the city entered at the end of the citiesArr
     citiesArr.push(city);
     //SET TO/STORE TO LOCAL STORAGE
     localStorage.setItem("cities", JSON.stringify(citiesArr));
-    console.log(localStorage);
     retrieveInfo();
 
     //GET CURRENT DATE AND CITY - THEN DISPLAY==================
     var date = moment();
     var dateDisplay = date.format("dddd MMMM Do YYYY");
     $(".current-city-date").empty();
-    //create a new span for the city
+    //create a new span for the city and add content
     var newSpanCity = $("<span>");
-    //add content
     newSpanCity.text(city);
     newSpanCity.attr("class", "current-city");
-    //create a new span for the date
+    //create a new span for the date and add content
     var newSpanDate = $("<span>");
-    //add content
     newSpanDate.text(dateDisplay);
     newSpanDate.attr("class", "current-date");
     //display city and date in card-header
-    $(".current-city-date").append(newSpanCity, newSpanDate);
+    $(".current-city-date").append(newSpanCity," ", newSpanDate);
 
     //API CURRENT WEATHER INFO ======================
     var queryURLCurrentTemp =
@@ -47,18 +45,18 @@ function onSearchClick() {
       method: "GET",
     }).then(function (response) {
       console.log(response);
-      //access temp info in api object and display it
+      //access temp info in api object and display
       var tempFCurrent = Math.ceil(response.main.temp);
       $("#temperature").text("Temperature: " + tempFCurrent + "F");
-      //access humidity and display it
+      //access humidity and display
       var humCurrent = response.main.humidity;
       $("#humidity").text("Humidity: " + humCurrent + "%");
       //CURRENT WIND SPEED
-      //access wind speed info and display it
+      //access wind speed info and display
       var windSpeedCurrent = response.wind.speed;
       $("#wind-speed").text(windSpeedCurrent);
       //CURRENT ICON
-      //access icon info and display it
+      //access icon info and display
       var iconCode = response.weather[0].icon;
       var iconImageURL =
         "https://openweathermap.org/img/w/" + iconCode + ".png";
@@ -76,7 +74,6 @@ function onSearchClick() {
         url: uvURL,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
         var uvIndex = response.value;
         $("#uv-index").text(uvIndex);
         //uv background color change depending on index level
@@ -111,81 +108,58 @@ function onSearchClick() {
         url: queryURL,
         method: "GET",
       }).then(function (response) {
-        console.log(response);
         //ACCESS DATES FOR 5 FOLLOWING DAYS
-        //day one date access and display
+        //day 1 to5: date access and display
         var dayOneD = moment(response.list[0].dt_txt);
         var dayOneDate = dayOneD.format("dddd MMMM Do YYYY");
         $("#day-one-date").text(dayOneDate);
-        //day two date
         var dayTwoD = moment(response.list[8].dt_txt);
         var dayTwoDate = dayTwoD.format("dddd MMMM Do YYYY");
         $("#day-two-date").text(dayTwoDate);
-        //day three date
         var dayThreeD = moment(response.list[16].dt_txt);
         var dayThreeDate = dayThreeD.format("dddd MMMM Do YYYY");
-        console.log(dayThreeDate);
         $("#day-three-date").text(dayThreeDate);
-        //day four date
         var dayFourD = moment(response.list[24].dt_txt);
         var dayFourDate = dayFourD.format("dddd MMMM Do YYYY");
-        console.log(dayFourDate);
         $("#day-four-date").text(dayFourDate);
-        //day five date
         var dayFiveD = moment(response.list[32].dt_txt);
         var dayFiveDate = dayFiveD.format("dddd MMMM Do YYYY");
-        console.log(dayFiveDate);
         $("#day-five-date").text(dayFiveDate);
         //ACCESS THE HUMIDITY FOR 5 FOLLOWING DAYS
-        //humidity day one access and display
+        //humidity day 1 to 5: access and display
         var humidityDayOne = response.list[0].main.humidity;
-        console.log(humidityDayOne);
         $("#hum-day-one").text("Humidity: " + humidityDayOne + "%");
-        //humidity day two
         var humidityDayTwo = response.list[8].main.humidity;
-        console.log(humidityDayTwo);
         $("#hum-day-two").text("Humidity: " + humidityDayTwo + "%");
-        //humidity day three
         var humidityDayThree = response.list[16].main.humidity;
-        console.log(humidityDayThree);
         $("#hum-day-three").text("Humidity: " + humidityDayThree + "%");
-        //humidity day four
         var humidityDayFour = response.list[24].main.humidity;
-        console.log(humidityDayFour);
         $("#hum-day-four").text("Humidity: " + humidityDayFour + "%");
-        //humidity day five
         var humidityDayFive = response.list[32].main.humidity;
-        console.log(humidityDayFive);
         $("#hum-day-five").text("Humidity: " + humidityDayFive + "%");
         //ACCESS ICON FOR 5 FOLLOWING DAYS
-        //icon day one access and display
+        //icon day 1 to 5: access and display
         var iconCodeDayOne = response.list[0].weather[0].icon;
         var iconImageURLDayOne =
           "https://openweathermap.org/img/w/" + iconCodeDayOne + ".png";
-        console.log(iconCodeDayOne);
         $("#icon-day-one").attr("src", iconImageURLDayOne);
-        //icon day two
         var iconCodeDayTwo = response.list[8].weather[0].icon;
         var iconImageURLDayTwo =
           "https://openweathermap.org/img/w/" + iconCodeDayTwo + ".png";
         $("#icon-day-two").attr("src", iconImageURLDayTwo);
-        //icon day three
         var iconCodeDayThree = response.list[16].weather[0].icon;
         var iconImageURLDayThree =
           "https://openweathermap.org/img/w/" + iconCodeDayThree + ".png";
         $("#icon-day-three").attr("src", iconImageURLDayThree);
-        //icon day four
         var iconCodeDayFour = response.list[24].weather[0].icon;
         var iconImageURLDayFour =
           "https://openweathermap.org/img/w/" + iconCodeDayFour + ".png";
         $("#icon-day-four").attr("src", iconImageURLDayFour);
-        //icon day five
         var iconCodeDayFive = response.list[32].weather[0].icon;
         var iconImageURLDayFive =
           "https://openweathermap.org/img/w/" + iconCodeDayFive + ".png";
-        console.log(iconCodeDayFive);
         $("#icon-day-five").attr("src", iconImageURLDayFive);
-        //API WEATHER 5 DAY FORECAST IN PROPER FARHENHEIT UNIT ==================
+        //API WEATHER 5 DAY FORECAST IN PROPER FARHENHEIT UNIT ==============
         var queryURLTemp =
           "https://api.openweathermap.org/data/2.5/forecast?q=" +
           city +
@@ -195,19 +169,15 @@ function onSearchClick() {
           method: "GET",
         }).then(function (response) {
           console.log(response);
-          //day one temp access and display
+          //day 1 to 5: temp access and display
           var tempFDayOne = Math.ceil(response.list[0].main.temp);
           $("#temp-day-one").text("Temperature: " + tempFDayOne + "F");
-          //day two temp
           var tempFDayTwo = Math.ceil(response.list[8].main.temp);
           $("#temp-day-two").text("Temperature: " + tempFDayTwo + "F");
-          //day three temp
           var tempFDayThree = Math.ceil(response.list[16].main.temp);
           $("#temp-day-three").text("Temperature: " + tempFDayThree + "F");
-          //day four temp
           var tempFDayFour = Math.ceil(response.list[24].main.temp);
           $("#temp-day-four").text("Temperature: " + tempFDayFour + "F");
-          //day five temp
           var tempFDayive = Math.ceil(response.list[32].main.temp);
           $("#temp-day-five").text("Temperature: " + tempFDayive + "F");
         });
@@ -222,12 +192,12 @@ function retrieveInfo() {
   citiesArr = JSON.parse(localStorage.getItem("cities")) || [];
   $(".search-history").empty();
   //to make sure there are no duplicates stored
-  //var noDuplicatesArr = [...new Set(citiesArr)];
+  var noDuplicatesArr = [...new Set(citiesArr)];
   //display retrieved info to my page - loop through citiesArr
-  for (var i = 0; i < citiesArr.length; i++) {
-    console.log(citiesArr[i]);
+  for (var i = 0; i < noDuplicatesArr.length; i++) {
+    console.log(noDuplicatesArr[i]);
     var pTag = $("<p>");
-    pTag.text(citiesArr[i]);
+    pTag.text(noDuplicatesArr[i]);
     //last city searched appears first
     var lastCitySearched = $(".search-history").prepend(pTag);
     var city = $("#city-name").val();

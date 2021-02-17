@@ -1,31 +1,65 @@
-#main-div {
+.navbar {
   background-image: url(https://lebanonpresbyterianchurch.com/wp-content/uploads/2018/12/cloud-background.jpg);
   background-repeat: no-repeat;
-  height: 100vh;
+  background-size: cover;
+  width: 100%;
 }
 #weatherapplogo {
-  width: 100%;
-  display: block;
-  text-align: center;
+  font-size: 30px;
 }
 .form-inline {
   width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0px;
+}
+.search-group {
+  text-align: center;
+  display: inline-block;
 }
 .input-group {
   max-height: 600px;
 }
+#city-name {
+  max-width: 250px;
+}
 .city-list {
-  max-height: 500px;
+  max-height: 400px;
+  padding-left: 10px;
+}
+.access-history {
+  color: black;
 }
 .search-history {
   list-style-type: none;
-  margin: 10px 10px;
-  border: 1px solid #c8c9c9;
-  border-radius: 0.7;
-  color: grey;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  color: rgb(112, 111, 111);
+  line-height: 7px;
+  text-align: left;
+}
+.search-history p:hover {
+  color: blue;
+  font-weight: bold;
 }
 .list-item {
   border-top: 1px solid #c8c9c9;
+}
+.card-five-day {
+  width: 13rem;
+  max-width: 15rem;
+  height: 13rem;
+  float: left;
+  justify-content: space-between;
+  margin: 2px;
+}
+.card-header {
+  font-size: 12px;
+  white-space: nowrap;
+}
+#current-card {
+  max-width: 40rem;
 }
 .card-text {
   margin: 0;
