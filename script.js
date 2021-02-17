@@ -190,13 +190,16 @@ function onSearchClick() {
 //retrieve local storage info
 function retrieveInfo() {
   citiesArr = JSON.parse(localStorage.getItem("cities")) || [];
+  console.log('CITIES ARR', citiesArr)
   $(".search-history").empty();
-  //to make sure there are no duplicates stored
-  var noDuplicatesArr = [...new Set(citiesArr)];
-  //display retrieved info to my page - loop through citiesArr
-  for (var i = 0; i < noDuplicatesArr.length; i++) {
+  // turn all items of citiesArr to lower case for duplicate elimination
+    var lowerCitiesArr=citiesArr.map(word => word.toLowerCase())
+    var noDuplicatesArr = [...new Set(lowerCitiesArr)];
+    var noDuplicatesArrFirstCap = noDuplicatesArr.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  //display retrieved info to my page
+  for (var i = 0; i < noDuplicatesArrFirstCap .length; i++) {
     var pTag = $("<p>");
-    pTag.text(noDuplicatesArr[i]);
+    pTag.text(noDuplicatesArrFirstCap[i]);
     //last city searched appears first
     var lastCitySearched = $(".search-history").prepend(pTag);
     var city = $("#city-name").val();
