@@ -14,7 +14,7 @@ function onSearchClick() {
     var city = $("#city-name").val();
     //First letter of City capitalized
     var cityFirstCap = city.charAt(0).toUpperCase() + city.slice(1);
-    console.log("CITY CAPPPS", cityFirstCap)
+    console.log("CITY CAPPPS", cityFirstCap);
     //add the city entered at the end of the citiesArr
     citiesArr.push(cityFirstCap);
     //SET TO/STORE TO LOCAL STORAGE
@@ -34,7 +34,7 @@ function onSearchClick() {
     newSpanDate.text(dateDisplay);
     newSpanDate.attr("class", "current-date");
     //display city and date in card-header
-    $(".current-city-date").append(newSpanCity," ", newSpanDate);
+    $(".current-city-date").append(newSpanCity, " ", newSpanDate);
 
     //API CURRENT WEATHER INFO ======================
     var queryURLCurrentTemp =
@@ -48,7 +48,11 @@ function onSearchClick() {
       console.log(response);
       //access temp info in api object and display
       var tempFCurrent = Math.ceil(response.main.temp);
-      $("#temperature").text("Temperature: " + tempFCurrent + "F");
+      $("#temperature").text("Temp. in Farenheit: " + tempFCurrent + "F");
+      // temperature in Celsius ============ TODO ===================
+      // (32°F − 32) × 5/9
+      var tempCelsiusCurrent = Math.round((tempFCurrent - 32) * (5 / 9));
+      $("#celsius").text("Temp. in Celsius: " + tempCelsiusCurrent + "C");
       //access humidity and display
       var humCurrent = response.main.humidity;
       $("#humidity").text("Humidity: " + humCurrent + "%");
@@ -171,15 +175,38 @@ function onSearchClick() {
         }).then(function (response) {
           //day 1 to 5: temp access and display
           var tempFDayOne = Math.ceil(response.list[0].main.temp);
-          $("#temp-day-one").text("Temperature: " + tempFDayOne + "F");
+          $("#temp-day-one").text("Temp. in Farenheit: " + tempFDayOne + "F");
+          // temp day one Celsius
+          var tempCDayOne = Math.round((tempFDayOne - 32) * (5 / 9));
+          $("#temp-day-one-celsius").text(
+            "Temp. in Celsius: " + tempCDayOne + "C"
+          );
           var tempFDayTwo = Math.ceil(response.list[8].main.temp);
-          $("#temp-day-two").text("Temperature: " + tempFDayTwo + "F");
+          $("#temp-day-two").text("Temp. in Farenheit: " + tempFDayTwo + "F");
+          var tempCDayTwo = Math.round((tempFDayTwo - 32) * (5 / 9));
+          $("#temp-day-two-celsius").text(
+            "Temp. in Celsius: " + tempCDayTwo + "C"
+          );
           var tempFDayThree = Math.ceil(response.list[16].main.temp);
-          $("#temp-day-three").text("Temperature: " + tempFDayThree + "F");
+          $("#temp-day-three").text(
+            "Temp. in Farenheit: " + tempFDayThree + "F"
+          );
+          var tempCDayThree = Math.round((tempFDayThree - 32) * (5 / 9));
+          $("#temp-day-three-celsius").text(
+            "Temp. in Celsius: " + tempCDayThree + "C"
+          );
           var tempFDayFour = Math.ceil(response.list[24].main.temp);
-          $("#temp-day-four").text("Temperature: " + tempFDayFour + "F");
-          var tempFDayive = Math.ceil(response.list[32].main.temp);
-          $("#temp-day-five").text("Temperature: " + tempFDayive + "F");
+          $("#temp-day-four").text("Temp. in Farenheit: " + tempFDayFour + "F");
+          var tempCDayFour = Math.round((tempFDayFour - 32) * (5 / 9));
+          $("#temp-day-four-celsius").text(
+            "Temp. in Celsius: " + tempCDayFour + "C"
+          );
+          var tempFDayFive = Math.ceil(response.list[32].main.temp);
+          $("#temp-day-five").text("Temp. in Farenheit: " + tempFDayFive + "F");
+          var tempCDayFive = Math.round((tempFDayFive - 32) * (5 / 9));
+          $("#temp-day-five-celsius").text(
+            "Temp. in Celsius: " + tempCDayFive + "C"
+          );
         });
       });
     });
@@ -190,14 +217,16 @@ function onSearchClick() {
 //retrieve local storage info
 function retrieveInfo() {
   citiesArr = JSON.parse(localStorage.getItem("cities")) || [];
-  console.log('CITIES ARR', citiesArr)
+  console.log("CITIES ARR", citiesArr);
   $(".search-history").empty();
   // turn all items of citiesArr to lower case for duplicate elimination
-    var lowerCitiesArr=citiesArr.map(word => word.toLowerCase())
-    var noDuplicatesArr = [...new Set(lowerCitiesArr)];
-    var noDuplicatesArrFirstCap = noDuplicatesArr.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  var lowerCitiesArr = citiesArr.map((word) => word.toLowerCase());
+  var noDuplicatesArr = [...new Set(lowerCitiesArr)];
+  var noDuplicatesArrFirstCap = noDuplicatesArr.map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+  );
   //display retrieved info to my page
-  for (var i = 0; i < noDuplicatesArrFirstCap .length; i++) {
+  for (var i = 0; i < noDuplicatesArrFirstCap.length; i++) {
     var pTag = $("<p>");
     pTag.text(noDuplicatesArrFirstCap[i]);
     //last city searched appears first

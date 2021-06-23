@@ -24,16 +24,17 @@
   max-width: 250px;
 }
 .city-list {
-  max-height: 400px;
-  padding-left: 10px;
+  max-height: 500px;
+  padding: 15px;
 }
 .access-history {
   color: black;
 }
 .search-history {
+  width: auto;
   list-style-type: none;
   margin: 0px;
-  padding: 7px 0px 0px 7px;
+  padding: 7px;
   border: 0.5px solid lightgray;
   border-radius: 0.25rem;
   color: rgb(112, 111, 111);
@@ -62,8 +63,12 @@
 #current-card {
   max-width: 40rem;
 }
-.card-text {
-  margin: 0;
+.card-body {
+  overflow: hidden;
+  white-space: nowrap;
+}
+p {
+  line-height: normal;
 }
 .low {
   background-color: green;
